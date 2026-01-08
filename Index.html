@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fatiha Kids | Premium Kids Fashion</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header with Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <h2><i class="fas fa-crown"></i> Fatiha Kids</h2>
+        <p class="tagline">Premium Children's Fashion</p>
+      </div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Collections</a>
+        <a href="#about">About</a>
+        <button class="cart-btn" onclick="openCart()">
+          <i class="fas fa-shopping-cart"></i>
+          Cart (<span id="cartCount">0</span>)
+        </button>
+        <a href="admin.html" class="admin-link"><i class="fas fa-user-cog"></i> Admin</a>
+      </nav>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" onclick="toggleMobileMenu()">Home</a>
+    <a href="#products" onclick="toggleMobileMenu()">Collections</a>
+    <a href="#about" onclick="toggleMobileMenu()">About</a>
+    <a href="admin.html" onclick="toggleMobileMenu()">Admin Panel</a>
+    <button class="cart-btn" onclick="openCart(); toggleMobileMenu();">
+      <i class="fas fa-shopping-cart"></i> Cart (<span id="cartCountMobile">0</span>)
+    </button>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Elegant Fashion for Little Stars ✨</h1>
+      <p>Premium quality, comfortable fabrics, and stylish designs that make every child shine.</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <h3>500+</h3>
+          <p>Happy Families</p>
+        </div>
+        <div class="stat">
+          <h3>100%</h3>
+          <p>Quality Guarantee</p>
+        </div>
+        <div class="stat">
+          <h3>24/7</h3>
+          <p>Customer Support</p>
+        </div>
+      </div>
+      <a href="#products" class="cta-btn">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products-section" id="products">
+    <div class="section-header">
+      <h2>Our Collections</h2>
+      <p>Discover our premium selection of kids fashion</p>
+      <div class="category-filter">
+        <button class="filter-btn active" onclick="filterProducts('all')">All</button>
+        <button class="filter-btn" onclick="filterProducts('girls')">Girls</button>
+        <button class="filter-btn" onclick="filterProducts('boys')">Boys</button>
+        <button class="filter-btn" onclick="filterProducts('accessories')">Accessories</button>
+      </div>
+    </div>
+    <div class="products" id="productList"></div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section" id="about">
+    <div class="about-content">
+      <h2>Why Choose Fatiha Kids?</h2>
+      <div class="features">
+        <div class="feature">
+          <i class="fas fa-tshirt"></i>
+          <h3>Premium Fabrics</h3>
+          <p>Soft, breathable materials that are gentle on sensitive skin.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-heart"></i>
+          <h3>Designed with Love</h3>
+          <p>Every piece is crafted with attention to detail and care.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-truck"></i>
+          <h3>Fast Delivery</h3>
+          <p>Free delivery in Dhaka for orders above ৳2000.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-exchange-alt"></i>
+          <h3>Easy Returns</h3>
+          <p>7-day return policy for unworn items with tags.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CART MODAL -->
+  <div class="cart-modal" id="cartModal">
+    <div class="cart-header">
+      <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+      <button class="close-btn" onclick="closeCart()">&times;</button>
+    </div>
+    <div class="cart-body" id="cartItems">
+      <p class="empty-cart-msg" id="emptyCartMsg">Your cart is empty</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-summary">
+        <p><strong>Subtotal:</strong> ৳ <span id="totalPrice">0</span></p>
+        <p><small>Shipping calculated at checkout</small></p>
+      </div>
+      <button class="checkout-btn" onclick="checkoutWhatsApp()">
+        <i class="fab fa-whatsapp"></i> Order via WhatsApp
+      </button>
+      <button class="continue-btn" onclick="closeCart()">Continue Shopping</button>
+    </div>
+  </div>
+  <div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Fatiha Kids</h3>
+        <p>Premium fashion for children aged 2-12 years. Bringing style and comfort together.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p><i class="fas fa-phone"></i> +880 1XXX-XXXXXX</p>
+        <p><i class="fas fa-envelope"></i> info@fatihakids.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</p>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+    <p class="copyright">© 2023 Fatiha Kids. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
